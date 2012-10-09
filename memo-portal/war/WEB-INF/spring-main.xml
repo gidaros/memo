@@ -5,7 +5,7 @@
 
 	<import resource="classpath:memo-dao.xml" />
 
-	<bean id="auditContext" class="memo.dao.test.util.MockContext" />
+	<bean id="auditContext" class="mojo.web.WebContext" />
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource">
@@ -20,7 +20,7 @@
 			<props>
 				<prop key="javax.persistence.validation.mode">none</prop>
 				<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
