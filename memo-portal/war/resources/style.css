@@ -150,13 +150,8 @@
 
 
 
-.alert-box .gwt-HTML {
-/* 	margin-bottom: 10px; */
-}
-
-
-
 .ajaxOverlay {
+	display: none;
 	opacity: 0.3;
 	filter: alpha(opacity = 30);
 	background-color: #fff;

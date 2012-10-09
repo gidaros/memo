@@ -46,17 +46,11 @@ public class PortalClientFactory implements ClientFactory {
 	public void initClientFactory() {
 		eventBus = new SimpleEventBus();
 
-		//
-		// Activity factory.
-		// Maps places to activities.
-		//
-
+		// Activity factory
+		// Maps places to activities
 		activityMapper = new AppActivityMapper(this);
 
-		//
-		// Swaps the current activity in response to PlaceChangeEvents.
-		//
-
+		// Swaps the current activity in response to PlaceChangeEvents
 		activityManager = new ActivityManager(activityMapper, eventBus);
 		activityManager.setDisplay(new AcceptsOneWidget() {
 
@@ -64,9 +58,7 @@ public class PortalClientFactory implements ClientFactory {
 
 			@Override
 			public void setWidget(IsWidget newWidget) {
-				if (currentWidget != null) {
-					UIHelper.getContentPanel().remove(currentWidget);
-				}
+				UIHelper.getContentPanel().clear();
 
 				if (newWidget != null) {
 					currentWidget = newWidget.asWidget();
@@ -75,26 +67,17 @@ public class PortalClientFactory implements ClientFactory {
 			}
 		});
 
-		//
-		// Maintains the current place.
-		// Fires PlaceChangeEvents to trigger an activity swap.
-		//
-
+		// Maintains the current place
+		// Fires PlaceChangeEvents to trigger an activity swap
 		placeController = new PlaceController(eventBus);
 
-		//
-		// Maps places to / from tokens.
-		//
-
+		// Maps places to / from tokens
 		historyMapper = GWT.create(AppPlaceHistoryMapper.class);
 
-		//
-		// Updates the history in response to PlaceChangeEvents.
-		//
-
+		// Updates the history in response to PlaceChangeEvents
 		historyHandler = new PlaceHistoryHandler(historyMapper);
 		historyHandler.register(placeController, eventBus, new ContentPlace());
-		historyHandler.handleCurrentHistory(); // fires initial placeChangeEvent
+		historyHandler.handleCurrentHistory(); // fires initial PlaceChangeEvent
 	}
 
 	@Override

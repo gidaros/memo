@@ -17,6 +17,7 @@
 package memo.web.portal.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.DOM;
@@ -54,8 +55,11 @@ public class PortalEntryPoint extends PortalClientFactory implements EntryPoint 
 			public void onClick(ClickEvent event) {
 				event.preventDefault();
 
-				Label label = new Label("Welcome!");
-				UIHelper.getContentPanel().add(label);
+				Label moduleBaseURL = new Label("ModuleBaseURL: " + GWT.getModuleBaseURL());
+				UIHelper.getContentPanel().add(moduleBaseURL);
+
+				Label hostPageBaseURL = new Label("HostPageBaseURL: " + GWT.getHostPageBaseURL());
+				UIHelper.getContentPanel().add(hostPageBaseURL);
 			}
 		});
 	}

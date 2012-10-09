@@ -65,7 +65,7 @@
 						<property name="classpath" refid="maven.compile.classpath" />
 						<property name="src.dir" value="${project.build.sourceDirectory}" />
 						<property name="war.dir" value="${project.build.directory}/${project.build.finalName}" />
-						<property name="gwt.url" value="http://localhost:8080/memo-web-admin/" />
+						<property name="gwt.url" value="http://localhost:8080/memo-admin/" />
 						<property name="gwt.module" value="memo.web.admin.Admin" />
 						<ant target="gwt.debug" />
 					</tasks>
