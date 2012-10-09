@@ -1,0 +1,14 @@
+out
+
+# eclipse
+.externalToolBuilders
+.settings
+.classpath
+.project
+
+# dao
+derby.log
+
+# web
+*/war/memo.app
+*/war/memo.cms
