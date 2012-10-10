@@ -37,14 +37,14 @@ public class AppActivityMapper implements ActivityMapper {
 
 	@Override
 	public Activity getActivity(Place place) {
-		if (place instanceof ProfilePlace) {
-			ProfilePlace profilePlace = (ProfilePlace) place;
-			return new ProfileActivity(clientFactory, profilePlace);
-		}
-
 		if (place instanceof ContentPlace) {
 			ContentPlace contentPlace = (ContentPlace) place;
 			return new ContentActivity(clientFactory, contentPlace);
+		}
+
+		if (place instanceof ProfilePlace) {
+			ProfilePlace profilePlace = (ProfilePlace) place;
+			return new ProfileActivity(clientFactory, profilePlace);
 		}
 
 		return null;

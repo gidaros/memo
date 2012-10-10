@@ -56,10 +56,10 @@ public class PortalEntryPoint extends PortalClientFactory implements EntryPoint 
 				event.preventDefault();
 
 				Label moduleBaseURL = new Label("ModuleBaseURL: " + GWT.getModuleBaseURL());
-				UIHelper.getContentPanel().add(moduleBaseURL);
+				UIHelper.getMainContainer().add(moduleBaseURL);
 
 				Label hostPageBaseURL = new Label("HostPageBaseURL: " + GWT.getHostPageBaseURL());
-				UIHelper.getContentPanel().add(hostPageBaseURL);
+				UIHelper.getMainContainer().add(hostPageBaseURL);
 			}
 		});
 	}

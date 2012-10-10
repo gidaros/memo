@@ -30,7 +30,7 @@
 
 	</head>
 	<body>
-		<div class="headerZone">
+		<div class="header headerZone">
 			<div class="gridRow container_12">
 				<div class="gridCol grid_9">
 					<ul id="menu">
@@ -47,12 +47,12 @@
 			</div>
 		</div>
 
-		<div class="contentZone">
+		<div class="content contentZone">
 			<div class="gridRow container_12">
 				<div class="gridCol grid_12">
-					<div id="content" class="content">
-						<div id="contentPanel">
-							<!-- content-bgn -->
+					<div id="contentContainer">
+						<div id="contentComponent">
+							<!-- content-begin -->
 							<tls:insertAttribute name="content" />
 							<!-- content-end -->
 						</div>
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 
-		<div class="footerZone">
+		<div class="footer footerZone">
 			<div class="gridRow container_12">
 				<div class="gridCol grid_12">
 					<div>&copy; memo.gr &nbsp;&nbsp;|&nbsp;&nbsp; Επικοινωνία</div>

@@ -46,35 +46,33 @@ public class PortalClientFactory implements ClientFactory {
 	public void initClientFactory() {
 		eventBus = new SimpleEventBus();
 
-		// Activity factory
-		// Maps places to activities
+		// maps places to activities
 		activityMapper = new AppActivityMapper(this);
 
-		// Swaps the current activity in response to PlaceChangeEvents
+		// swaps the current activity in response to PlaceChangeEvent
 		activityManager = new ActivityManager(activityMapper, eventBus);
 		activityManager.setDisplay(new AcceptsOneWidget() {
 
-			private Widget currentWidget;
-
 			@Override
-			public void setWidget(IsWidget newWidget) {
-				UIHelper.getContentPanel().clear();
+			public void setWidget(IsWidget isWidget) {
+				UIHelper.getMainContainer().clear();
 
-				if (newWidget != null) {
-					currentWidget = newWidget.asWidget();
-					UIHelper.getContentPanel().add(currentWidget);
+				if (isWidget != null) {
+					Widget widget = isWidget.asWidget();
+					widget.getElement().setId(getMainComponentId());
+					UIHelper.getMainContainer().add(widget);
 				}
 			}
 		});
 
-		// Maintains the current place
-		// Fires PlaceChangeEvents to trigger an activity swap
+		// maintains the current place
+		// fires PlaceChangeEvent to trigger an activity swap
 		placeController = new PlaceController(eventBus);
 
-		// Maps places to / from tokens
+		// maps places to / from tokens
 		historyMapper = GWT.create(AppPlaceHistoryMapper.class);
 
-		// Updates the history in response to PlaceChangeEvents
+		// updates the history in response to PlaceChangeEvent
 		historyHandler = new PlaceHistoryHandler(historyMapper);
 		historyHandler.register(placeController, eventBus, new ContentPlace());
 		historyHandler.handleCurrentHistory(); // fires initial PlaceChangeEvent
@@ -88,5 +86,15 @@ public class PortalClientFactory implements ClientFactory {
 	@Override
 	public PlaceController getPlaceController() {
 		return placeController;
+	}
+
+	@Override
+	public String getMainContainerId() {
+		return UIHelper.MAIN_CONTAINER_ID;
+	}
+
+	@Override
+	public String getMainComponentId() {
+		return UIHelper.MAIN_COMPONENT_ID;
 	}
 }

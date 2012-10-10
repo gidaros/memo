@@ -21,7 +21,10 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class UIHelper {
 
-	public static Panel getContentPanel() {
-		return RootPanel.get("content");
+	public static final String MAIN_CONTAINER_ID = "contentContainer";
+	public static final String MAIN_COMPONENT_ID = "contentComponent";
+
+	public static Panel getMainContainer() {
+		return RootPanel.get(MAIN_CONTAINER_ID);
 	}
 }
