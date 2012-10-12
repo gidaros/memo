@@ -23,16 +23,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/app")
 public class HomeController {
 
-	@RequestMapping(value = "/home.htm")
+	@RequestMapping(value = "/home")
 	public ModelAndView doHome(HttpServletRequest request) {
-		return new ModelAndView("/app/home");
+		return new ModelAndView("/home");
 	}
 
-	@RequestMapping(value = "/test.htm")
+	@RequestMapping(value = "/test")
 	public ModelAndView doTest(HttpServletRequest request) {
-		return new ModelAndView("/app/test");
+		return new ModelAndView("/test");
 	}
 }

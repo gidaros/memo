@@ -2,7 +2,7 @@
 
 <h2>HOME PAGE</h2>
 
-<a href='${contextPath}/app/test.htm'>TEST PAGE</a>
+<a href='${contextPath}/app/test'>TEST PAGE</a>
 <a href='#foo'>PLAIN HASH</a>
 <a href='#ContentActivity.ContentPlace:http://localhost:8080/memo-portal/'>GWT ACTIVITY</a>
 <a href='http://google.com/'>GOOGLE.COM</a>

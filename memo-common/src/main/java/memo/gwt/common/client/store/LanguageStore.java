@@ -26,7 +26,7 @@ import memo.gwt.common.client.model.LanguageModel;
 public class LanguageStore extends HttpStore<LanguageModel> {
 
 	public LanguageStore() {
-		super(GWT.getModuleBaseURL() + "language/fetch.htm");
+		super(GWT.getModuleBaseURL() + "../app/user/language/fetch");
 		setReader(XmlReader.create(LanguageModel.TYPE, "Language"));
 	}
 }

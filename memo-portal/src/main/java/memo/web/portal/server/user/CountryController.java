@@ -31,7 +31,7 @@ import mojo.dao.core.spec.Select;
 import mojo.dao.model.user.Country;
 
 @Controller
-@RequestMapping("/app/country")
+@RequestMapping("/user/country")
 public class CountryController {
 
 	private DataService<Country> countryService;
@@ -47,10 +47,17 @@ public class CountryController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/fetch.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch", method = RequestMethod.GET)
 	public List<Country> doFetch() {
 		Select<Country> spec = new Select<Country>().order("name");
 		DataPage<Country> page = countryService.select(spec);
+		covertCodesToUppercase(page.getData());
 		return page.getData();
+	}
+
+	private void covertCodesToUppercase(List<Country> countries) {
+		for (Country country : countries) {
+			country.setCode(country.getCode().toUpperCase());
+		}
 	}
 }

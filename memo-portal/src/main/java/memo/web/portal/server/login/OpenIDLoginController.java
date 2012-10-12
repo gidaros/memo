@@ -34,10 +34,10 @@ import mojo.web.openid.OpenIDService.RequestData;
 import mojo.web.openid.OpenIDService.ResponseData;
 
 @Controller
-@RequestMapping("/app/openid")
+@RequestMapping("/openid")
 public class OpenIDLoginController extends AbstractLoginController {
 
-	private static final String RETURN_TO = "/app/openid/verify.htm";
+	private static final String RETURN_TO = "/app/openid/verify";
 
 	private static final String DISCOVERY_ATTR = "openidDiscovery";
 	private static final String IDENTIFIER_ATTR = "openidIdentifier";
@@ -60,7 +60,7 @@ public class OpenIDLoginController extends AbstractLoginController {
 	 * Handles OpenID login preparation. Performs OP discovery. Redirects to the
 	 * OP endpoint.
 	 */
-	@RequestMapping(value = "/setup.htm")
+	@RequestMapping(value = "/setup")
 	public ModelAndView doSetup(HttpServletRequest request) {
 		String identifier = request.getParameter(IDENTIFIER_PARAM);
 		String returnTo = getReturnTo(request);
@@ -73,7 +73,7 @@ public class OpenIDLoginController extends AbstractLoginController {
 
 		if (requestData.isVersion2()) {
 			// OpenID v2 - use html form redirect
-			ModelAndView mav = new ModelAndView("/app/openid/setup");
+			ModelAndView mav = new ModelAndView("/openid/setup");
 			mav.addObject("endpoint", requestData.getEndpoint());
 			mav.addObject("parameters", requestData.getParameters());
 			return mav;
@@ -89,7 +89,7 @@ public class OpenIDLoginController extends AbstractLoginController {
 	 * control is transferred to the client.
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = "/verify.htm")
+	@RequestMapping(value = "/verify")
 	public ModelAndView doVerify(HttpServletRequest request) {
 		String requestURL = getRequestURL(request, true);
 		Map<String, String[]> parameterMap = request.getParameterMap();
@@ -99,7 +99,7 @@ public class OpenIDLoginController extends AbstractLoginController {
 
 		// look up for existing user
 		User user = getLoginService().findUserByOpenID(responseData.getIdentifier());
-		ModelAndView mav = new ModelAndView("/app/openid/verify");
+		ModelAndView mav = new ModelAndView("/openid/verify");
 
 		if (user != null) {
 			// user found; perform sign-in
@@ -118,7 +118,7 @@ public class OpenIDLoginController extends AbstractLoginController {
 	/**
 	 * Handles registration submission.
 	 */
-	@RequestMapping(value = "/signup.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ModelAndView doSignUp(HttpServletRequest request) {
 		String identifier = (String) request.getSession().getAttribute(IDENTIFIER_ATTR);
 

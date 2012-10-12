@@ -17,8 +17,8 @@
 		<link type="text/css" rel="stylesheet" href="${contextPath}/resources/css/grid960.css" />
 		<link type="text/css" rel="stylesheet" href="${contextPath}/resources/style1.css" title="Style 1" />
 		<link type="text/css" rel="alternate stylesheet" href="${contextPath}/resources/style2.css" title="Style 2" />
-		<script type="text/javascript" src="${contextPath}/jquery/jquery-1.8.2"></script>
-		<script type="text/javascript" src="${contextPath}/app/app.nocache.js"></script>
+		<script type="text/javascript" src="${contextPath}/resources/jquery/jquery-1.8.2.js"></script>
+		<script type="text/javascript" src="${contextPath}/gwt/gwt.nocache.js"></script>
 
 		<jwr:script src="/bundles/messages.js" />
 

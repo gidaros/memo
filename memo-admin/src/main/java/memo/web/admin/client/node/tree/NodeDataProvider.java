@@ -27,15 +27,13 @@ import mojo.gwt.data.client.event.LoadEvent;
 import mojo.gwt.data.client.event.LoadHandler;
 import mojo.gwt.data.client.util.Observer;
 
-import memo.gwt.common.client.store.NodeStore;
-
 public class NodeDataProvider extends AsyncDataProvider<Object> {
 
 	private HttpStore store;
 	private Object node;
 
 	public NodeDataProvider(Object node) {
-		store = new NodeStore();
+		// store = new NodeStore();
 		this.node = node;
 	}
 

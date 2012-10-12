@@ -31,7 +31,7 @@ import mojo.dao.core.spec.Select;
 import mojo.dao.model.user.Language;
 
 @Controller
-@RequestMapping("/app/language")
+@RequestMapping("/user/language")
 public class LanguageController {
 
 	private DataService<Language> languageService;
@@ -47,17 +47,17 @@ public class LanguageController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/fetch.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/fetch", method = RequestMethod.GET)
 	public List<Language> doFetch() {
 		Select<Language> spec = new Select<Language>().order("name");
 		DataPage<Language> page = languageService.select(spec);
-		covertCodesToUppercase(page.getData());
+		covertCodesToLowerCase(page.getData());
 		return page.getData();
 	}
 
-	private void covertCodesToUppercase(List<Language> langs) {
-		for (Language lang : langs) {
-			lang.setCode(lang.getCode().toUpperCase());
+	private void covertCodesToLowerCase(List<Language> languages) {
+		for (Language language : languages) {
+			language.setCode(language.getCode().toLowerCase());
 		}
 	}
 }

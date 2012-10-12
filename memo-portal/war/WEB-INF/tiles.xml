@@ -7,11 +7,11 @@
 
 	<definition name="HomeController" template="/WEB-INF/classes/memo/web/portal/server/home/HomeController_template.jsp" />
 
-	<definition name="/app/home" extends="HomeController">
+	<definition name="/home" extends="HomeController">
 		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/home/HomeController_doHome.jsp" />
 	</definition>
 
-	<definition name="/app/test" extends="HomeController">
+	<definition name="/test" extends="HomeController">
 		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/home/HomeController_doTest.jsp" />
 	</definition>
 
@@ -19,11 +19,11 @@
 
 	<definition name="OpenIDLoginController" template="/WEB-INF/classes/memo/web/portal/server/login/OpenIDLoginController_template.jsp" />
 
-	<definition name="/app/openid/setup" extends="OpenIDLoginController">
+	<definition name="/openid/setup" extends="OpenIDLoginController">
 		<put-attribute name="body" value="/WEB-INF/classes/memo/web/portal/server/login/OpenIDLoginController_doSetup.jsp" />
 	</definition>
 
-	<definition name="/app/openid/verify" extends="OpenIDLoginController">
+	<definition name="/openid/verify" extends="OpenIDLoginController">
 		<put-attribute name="body" value="/WEB-INF/classes/memo/web/portal/server/login/OpenIDLoginController_doVerify.jsp" />
 	</definition>
 

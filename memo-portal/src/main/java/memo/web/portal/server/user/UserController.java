@@ -29,7 +29,7 @@ import mojo.dao.core.DataService;
 import mojo.dao.model.user.User;
 
 @Controller
-@RequestMapping(value = "/app/user")
+@RequestMapping(value = "/user")
 public class UserController {
 
 	private DataService<User> userService;
@@ -45,12 +45,12 @@ public class UserController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/find.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/find", method = RequestMethod.GET)
 	public User doFind(@RequestParam Integer id) {
 		return userService.findById(id);
 	}
 
-	@RequestMapping(value = "/update.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public void doUpdate(@RequestBody User user) {
 		userService.update(user);
 	}

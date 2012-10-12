@@ -51,7 +51,7 @@ public class AbstractLoginController {
 	/**
 	 * Handles user logout.
 	 */
-	@RequestMapping(value = "/exit.htm")
+	@RequestMapping(value = "/exit")
 	public ModelAndView doExit(HttpSession session) {
 		session.invalidate();
 		return new ModelAndView("redirect:/");

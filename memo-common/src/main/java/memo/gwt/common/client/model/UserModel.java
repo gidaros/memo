@@ -46,13 +46,12 @@ public class UserModel {
 	public UserModel() {
 	}
 
-	public UserModel(JSObject jso) {
-		setNickname(jso.getString("nickname"));
-		setFullname(jso.getString("fullname"));
-		setEmail(jso.getString("email"));
+	public UserModel(JSObject openid) {
+		setNickname(openid.getString("nickname"));
+		setFullname(openid.getString("fullname"));
+		setEmail(openid.getString("email"));
 
-		String gender = jso.getString("gender");
-		String dob = jso.getString("dob");
+		String gender = openid.getString("gender");
 
 		if ("M".equals(gender)) {
 			setGender("MALE");
@@ -61,13 +60,29 @@ public class UserModel {
 			setGender("FEMALE");
 		}
 
-		DateConverter converter = new DateConverter("yyyy-MM-dd");
-		setBirthday(converter.parse(dob));
+		String dob = openid.getString("dob");
 
-		setCountry(jso.getString("country"));
-		setPostcode(jso.getString("postcode"));
-		setLanguage(jso.getString("language"));
-		setTimezone(jso.getString("timezone"));
+		if (dob != null) {
+			DateConverter converter = new DateConverter("yyyy-MM-dd");
+			setBirthday(converter.parse(dob));
+		}
+
+		String country = openid.getString("country");
+
+		if (country != null) {
+			country = country.toUpperCase();
+			setCountry(country);
+		}
+
+		String language = openid.getString("language");
+
+		if (language != null) {
+			language = language.toLowerCase();
+			setLanguage(language);
+		}
+
+		setPostcode(openid.getString("postcode"));
+		setTimezone(openid.getString("timezone"));
 	}
 
 	public Integer getId() {
