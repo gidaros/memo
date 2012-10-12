@@ -5,18 +5,14 @@
 
 <tiles-definitions>
 
-	<!-- TEMPLATE DEFINITIONS -->
-
 	<definition name="exception-template" template="/WEB-INF/views/exception-template.jsp" />
 
-	<!-- VIEW DEFINITIONS -->
-
-	<!-- spring-mvc -->
+	<!-- spring-mvc.xml -->
 	<definition name="/web/exception" extends="exception-template">
 		<put-attribute name="body" value="/WEB-INF/views/web/exception.jsp" />
 	</definition>
 
-	<!-- spring-mvc -->
+	<!-- spring-mvc.xml -->
 	<definition name="/web/web-exception" extends="exception-template">
 		<put-attribute name="body" value="/WEB-INF/views/web/web-exception.jsp" />
 	</definition>

@@ -1,9 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<a href="./">Test</a>
-<a href="#foo">HASH</a>
-<a href="#ContentActivity.ContentPlace:http://localhost:8080/memo-portal/">ACTIVITY</a>
-<a href="http://google.com/">GOOGLE</a>
+<h2>HOME PAGE</h2>
+
+<a href='${contextPath}/app/test.htm'>TEST</a>
+<a href='#foo'>HASH</a>
+<a href='#ContentActivity.ContentPlace:http://localhost:8080/memo-portal/'>ACTIVITY</a>
+<a href='http://google.com/'>GOOGLE</a>
 
 <c:if test="${not empty sessionScope.contextUser}">
 	<ul>

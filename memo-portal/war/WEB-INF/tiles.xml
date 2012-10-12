@@ -11,6 +11,10 @@
 		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/home/HomeController_doHome.jsp" />
 	</definition>
 
+	<definition name="/app/test" extends="HomeController">
+		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/home/HomeController_doTest.jsp" />
+	</definition>
+
 
 
 	<definition name="OpenIDLoginController" template="/WEB-INF/classes/memo/web/portal/server/login/OpenIDLoginController_template.jsp" />
@@ -27,12 +31,12 @@
 
 	<definition name="exception-template" template="/WEB-INF/views/exception-template.jsp" />
 
-	<!-- spring-mvc -->
+	<!-- spring-mvc.xml -->
 	<definition name="/web/exception" extends="exception-template">
 		<put-attribute name="body" value="/WEB-INF/views/web/exception.jsp" />
 	</definition>
 
-	<!-- spring-mvc -->
+	<!-- spring-mvc.xml -->
 	<definition name="/web/web-exception" extends="exception-template">
 		<put-attribute name="body" value="/WEB-INF/views/web/web-exception.jsp" />
 	</definition>

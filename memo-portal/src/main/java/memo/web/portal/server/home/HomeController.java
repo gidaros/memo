@@ -30,4 +30,9 @@ public class HomeController {
 	public ModelAndView doHome(HttpServletRequest request) {
 		return new ModelAndView("/app/home");
 	}
+
+	@RequestMapping(value = "/test.htm")
+	public ModelAndView doTest(HttpServletRequest request) {
+		return new ModelAndView("/app/test");
+	}
 }

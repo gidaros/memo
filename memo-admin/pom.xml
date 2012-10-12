@@ -48,18 +48,28 @@
 	</dependencies>
 
 	<build>
+		<resources>
+
+			<resource>
+				<!-- default resources -->
+				<directory>${project.basedir}/src/main/resources</directory>
+			</resource>
+
+			<resource>
+				<!-- java sources and web resources -->
+				<directory>${project.basedir}/src/main/java</directory>
+			</resource>
+
+		</resources>
 		<plugins>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
 
-				<!--
-					Configuration for GWT development mode.
-					Does not automatically participate into the default
-					build life-cycle. You have to fire it, explicitly:
-					e.g. mvn clean compile war:exploded antrun:run
-				-->
+				<!-- Configuration for GWT development mode. -->
+				<!-- Does not automatically participate in the default build life-cycle. -->
+				<!-- You have to fire it, explicitly: e.g. mvn clean compile war:exploded antrun:run -->
 				<configuration>
 					<tasks>
 						<property name="classpath" refid="maven.compile.classpath" />
@@ -71,11 +81,8 @@
 					</tasks>
 				</configuration>
 
-				<!--
-					Configuration for GWT compile mode.
-					Participates into the default build life-cycle.
-					e.g. mvn clean compile package
-				-->
+				<!-- Configuration for GWT compile mode. -->
+				<!-- Participates in the default build life-cycle. e.g. mvn clean compile package -->
 				<executions>
 					<execution>
 						<phase>prepare-package</phase>

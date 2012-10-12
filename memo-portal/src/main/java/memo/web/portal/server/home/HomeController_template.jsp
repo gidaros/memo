@@ -6,6 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+	<c:set value="${pageContext.request.contextPath}" var="contextPath"></c:set>
 	<fmt:setBundle basename="memo.web.portal.messages" scope="session" />
 	<head>
 		<title>
