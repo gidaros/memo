@@ -5,14 +5,14 @@
 
 <tiles-definitions>
 
-	<definition name="HomeController" template="/WEB-INF/classes/memo/web/portal/server/home/HomeController_template.jsp" />
+	<definition name="HomeController" template="/WEB-INF/classes/memo/web/portal/server/PortalController_template.jsp" />
 
 	<definition name="/home" extends="HomeController">
-		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/home/HomeController_doHome.jsp" />
+		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/PortalController_doHome.jsp" />
 	</definition>
 
 	<definition name="/test" extends="HomeController">
-		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/home/HomeController_doTest.jsp" />
+		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/PortalController_doTest.jsp" />
 	</definition>
 
 

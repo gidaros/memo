@@ -1,15 +1,17 @@
 function showLoadingMask() {
-//	console.log('### showLoadingMask');
-	$('.ajaxOverlay').fadeIn('fast');
+	window.loadingMaskId = setTimeout(function() {
+		$('.ajaxOverlay').fadeIn('fast');
+		delete window.loadingMaskId;
+	}, 600);
 }
 
 function hideLoadingMask() {
-//	console.log('### hideLoadingMask');
+	clearTimeout(window.loadingMaskId);
 	$('.ajaxOverlay').fadeOut('fast');
 }
 
 $(function() {
-	$("<div class='ajaxOverlay'>" + 
-	  "<div class='ajaxIndicator'></div>" + 
-	  "</div>").appendTo("html > body");
+	$("<div class='ajaxOverlay'>"
+	+ "<div class='ajaxIndicator'></div>"
+	+ "</div>").appendTo("html > body");
 });

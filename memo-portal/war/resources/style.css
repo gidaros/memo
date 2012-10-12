@@ -162,12 +162,13 @@
 }
 
 .ajaxIndicator {
-	width: 64px; height: 64px;
-	background-image: url(images/loader-64.png);
+	width: 128px; height: 128px;
+	background-image: url(images/ajax/23.gif);
 	background-repeat: no-repeat;
-	position: absolute;
+	background-position: center;
+	position: fixed;
 	left: 50%; top: 50%;
-	margin-left: -32px;
-	margin-right: -32px;
+	margin-left: -64px;
+	margin-top: -64px;
 	z-index: 9999; 
 }

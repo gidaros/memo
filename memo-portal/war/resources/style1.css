@@ -124,13 +124,17 @@ a:hover {
 }
 
 .content a {
-	color: #FBB023;
+	color: #fbb023 !important;
 }
 
 .content a:hover {
-	color: #FBB023;
+	color: #ffc75a !important;
 }
 
 .content a:visited {
-	color: #DA991E;
+/* 	color: #da991e !important; */
+}
+
+.content a:active {
+	color:#da991e !important;
 }

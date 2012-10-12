@@ -19,11 +19,14 @@ package memo.web.portal.client;
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.Node;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
@@ -41,7 +44,7 @@ public class PortalClientFactory implements ClientFactory {
 	private PlaceHistoryHandler historyHandler;
 
 	/**
-	 * Initializes the GWT MVP framework.
+	 * Initializes the MVP framework.
 	 */
 	public void initClientFactory() {
 		eventBus = new SimpleEventBus();
@@ -55,12 +58,25 @@ public class PortalClientFactory implements ClientFactory {
 
 			@Override
 			public void setWidget(IsWidget isWidget) {
-				UIHelper.getMainContainer().clear();
-
 				if (isWidget != null) {
+					Panel mainContainer = UIHelper.getMainContainer();
+					Element mainContainerEl = mainContainer.getElement();
+
+					// clear previous widget
+					mainContainer.clear();
+
+					// clear previous non-widget elements
+					while (mainContainerEl.hasChildNodes()) {
+						Node tmp = mainContainerEl.getChild(0);
+						mainContainerEl.removeChild(tmp);
+					}
+
 					Widget widget = isWidget.asWidget();
-					widget.getElement().setId(getMainComponentId());
-					UIHelper.getMainContainer().add(widget);
+					Element widgetEl = widget.getElement();
+					widgetEl.setId(getMainComponentId());
+
+					// add current widget
+					mainContainer.add(widget);
 				}
 			}
 		});
