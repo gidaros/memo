@@ -9,7 +9,6 @@
 	<inherits name="memo.gwt.common.Common" />
 
 	<entry-point class="memo.web.portal.client.PortalEntryPoint" />
-	<stylesheet src="../resources/grid.css" />
 	<stylesheet src="../resources/style.css" />
 	<script src="../resources/script.js" />
 

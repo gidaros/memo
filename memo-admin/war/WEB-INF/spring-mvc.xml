@@ -34,7 +34,7 @@
 	<!-- maps exception class names to view names -->
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="defaultStatusCode" value="500" />
-		<property name="defaultErrorView"  value="/web/exception" />
+		<property name="defaultErrorView"  value="/web/any-exception" />
 		<property name="exceptionMappings">
 			<props>
 				<prop key="mojo.web.WebException">/web/web-exception</prop>

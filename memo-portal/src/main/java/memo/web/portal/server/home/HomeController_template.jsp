@@ -6,25 +6,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<c:set value="${pageContext.request.contextPath}" var="contextPath"></c:set>
 	<fmt:setBundle basename="memo.web.portal.messages" scope="session" />
+	<c:set value="${pageContext.request.contextPath}" var="contextPath" scope="session" />
 	<head>
 		<title>
 			<fmt:message key="title" />
 		</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link type="text/css" rel="stylesheet" href="resources/reset.css" />
-		<link type="text/css" rel="stylesheet" href="resources/style1.css" title="Style 1" />
-		<link type="text/css" rel="alternate stylesheet" href="resources/style2.css" title="Style 2" />
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script type="text/javascript" src="app/app.nocache.js"></script>
+		<link type="text/css" rel="stylesheet" href="${contextPath}/resources/css/reset.css" />
+		<link type="text/css" rel="stylesheet" href="${contextPath}/resources/css/grid960.css" />
+		<link type="text/css" rel="stylesheet" href="${contextPath}/resources/style1.css" title="Style 1" />
+		<link type="text/css" rel="alternate stylesheet" href="${contextPath}/resources/style2.css" title="Style 2" />
+		<script type="text/javascript" src="${contextPath}/jquery/jquery-1.8.2"></script>
+		<script type="text/javascript" src="${contextPath}/app/app.nocache.js"></script>
 
-		<jwr:script  src="/bundles/messages.js" />
+		<jwr:script src="/bundles/messages.js" />
 
-		<c:if test="${not empty sessionScope.contextUser}">
+		<c:if test="${not empty contextUser}">
 			<script type="text/javascript">
 				var User = {
-					nickname: "${sessionScope.contextUser.nickname}"
+					nickname: "${contextUser.nickname}"
 				};
 			</script>
 		</c:if>

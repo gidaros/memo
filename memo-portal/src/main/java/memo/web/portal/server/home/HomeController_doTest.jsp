@@ -2,5 +2,4 @@
 
 <h2>TEST PAGE</h2>
 
-<a href="<c:url value="/app/home.htm" />">HOME</a>
-
+<a href='<c:url value="/app/home.htm" />'>HOME PAGE</a>
