@@ -1,7 +1,6 @@
 package memo.dao.test.util;
 
 import java.util.Date;
-import java.util.List;
 
 import mojo.dao.AuditContext;
 import mojo.dao.model.user.User;
@@ -10,7 +9,6 @@ import mojo.dao.model.user.UserGroup;
 public class MockContext implements AuditContext {
 
 	private User user;
-	private List<UserGroup> userGroups;
 
 	public MockContext() {
 		initUser();
@@ -23,8 +21,6 @@ public class MockContext implements AuditContext {
 		user.setEmail("jblue@cavalrycommand.com");
 		user.setPassword("J+A=LFE");
 		user.setSignUpTime(new Date());
-
-		userGroups = user.getGroups();
 
 		initGroup("Star Sheriffs");
 		initGroup("Outriders");
@@ -40,11 +36,6 @@ public class MockContext implements AuditContext {
 	@Override
 	public User getUser() {
 		return user;
-	}
-
-	@Override
-	public List<UserGroup> getUserGroups() {
-		return userGroups;
 	}
 
 	@Override

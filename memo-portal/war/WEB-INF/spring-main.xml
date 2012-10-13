@@ -5,7 +5,7 @@
 
 	<import resource="classpath:memo-dao.xml" />
 
-	<bean id="auditContext" class="mojo.web.WebContext" />
+	<bean id="auditContext" class="mojo.web.core.WebContextFactoryBean" />
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource">

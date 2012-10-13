@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import mojo.dao.model.user.User;
-import mojo.web.WebContext;
+import mojo.web.core.WebContext;
 import mojo.web.openid.OpenIDService;
 import mojo.web.openid.OpenIDService.RequestData;
 import mojo.web.openid.OpenIDService.ResponseData;

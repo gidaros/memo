@@ -27,7 +27,7 @@
 
 	<filter>
 		<filter-name>WebContextFilter</filter-name>
-		<filter-class>mojo.web.WebContextFilter</filter-class>
+		<filter-class>mojo.web.core.WebContextFilter</filter-class>
 	</filter>
 
 	<filter-mapping>

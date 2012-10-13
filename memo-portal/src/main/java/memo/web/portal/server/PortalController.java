@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -31,10 +32,10 @@ public class PortalController {
 	}
 
 	@RequestMapping(value = "/test")
-	public ModelAndView doTest(HttpServletRequest request) {
+	public ModelAndView doTest(HttpServletRequest request, @RequestParam int timeout) {
 		synchronized (this) {
 			try {
-				wait(3000);
+				wait(timeout);
 			}
 			catch (InterruptedException e) {
 				throw new RuntimeException(e);

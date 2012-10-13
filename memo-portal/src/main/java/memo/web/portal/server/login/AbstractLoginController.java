@@ -31,8 +31,8 @@ import org.springframework.web.servlet.ModelAndView;
 import mojo.dao.model.user.User;
 import mojo.dao.model.user.User.Gender;
 import mojo.dao.service.login.LoginService;
-import mojo.web.WebContext;
-import mojo.web.WebException;
+import mojo.web.core.WebContext;
+import mojo.web.core.WebException;
 
 public class AbstractLoginController {
 
