@@ -4,7 +4,7 @@ function showLoadingMask() {
 		$('.ajaxOverlay').fadeIn('fast');
 		// $('.ajaxOverlay').fadeIn(100);
 		// $('.ajaxOverlay').show();
-	}, 1000);
+	}, 800);
 }
 
 function hideLoadingMask() {
