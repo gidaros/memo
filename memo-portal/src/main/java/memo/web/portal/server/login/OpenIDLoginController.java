@@ -29,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import mojo.dao.model.user.User;
 import mojo.web.core.WebContext;
+import mojo.web.login.AbstractLoginController;
 import mojo.web.openid.OpenIDService;
 import mojo.web.openid.OpenIDService.RequestData;
 import mojo.web.openid.OpenIDService.ResponseData;

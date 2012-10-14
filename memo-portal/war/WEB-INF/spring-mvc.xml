@@ -108,22 +108,4 @@
 		</property>
 	</bean>
 
-	<!-- Application Controllers and Services -->
-
-	<bean id="openidService" class="mojo.web.openid.OpenID4JavaService">
-		<property name="consumerManager" ref="consumerManager" />
-	</bean>
-
-	<bean id="consumerManager" class="org.openid4java.consumer.ConsumerManager">
-		<property name="associations">
-			<bean class="org.openid4java.consumer.InMemoryConsumerAssociationStore" />
-		</property>
-		<property name="nonceVerifier">
-			<bean class="org.openid4java.consumer.InMemoryNonceVerifier">
-				<constructor-arg index="0" value="60" />
-			</bean>
-		</property>
-		<property name="maxAssocAttempts" value="3" />
-	</bean>
-
 </beans>

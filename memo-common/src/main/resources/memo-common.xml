@@ -5,6 +5,7 @@
 
 	<import resource="classpath:mojo-repositories.xml" />
 	<import resource="classpath:mojo-services.xml" />
+	<import resource="classpath:mojo-web.xml" />
 
 	<bean id="postRepository" parent="repository">
 		<property name="entityType" value="memo.dao.common.model.Post" />

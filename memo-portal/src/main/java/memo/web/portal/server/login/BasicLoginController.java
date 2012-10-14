@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import mojo.dao.model.user.User;
+import mojo.web.login.AbstractLoginController;
 
 @Controller
 @RequestMapping("/login")
