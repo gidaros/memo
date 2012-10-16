@@ -7,15 +7,4 @@
 	<import resource="classpath:mojo-services.xml" />
 	<import resource="classpath:mojo-web.xml" />
 
-	<bean id="postRepository" parent="repository">
-		<property name="entityType" value="memo.dao.common.model.Post" />
-	</bean>
-
-	<bean id="postService" class="mojo.dao.core.DataService">
-		<property name="repository" ref="postRepository" />
-		<property name="validation">
-			<bean class="memo.dao.common.validation.PostValidation" />
-		</property>
-	</bean>
-
 </beans>

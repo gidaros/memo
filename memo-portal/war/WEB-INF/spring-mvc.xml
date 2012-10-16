@@ -8,9 +8,8 @@
 	<context:component-scan base-package="memo" />
 
 	<!-- VIEW RESOLVERS -->
-	<!-- View Resolvers map view names to views. -->
 
-	<!-- configure tiles -->
+	<!-- configures tiles -->
 	<bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
 		<property name="definitions">
 			<list>
@@ -28,13 +27,13 @@
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views" />
 		<property name="suffix" value=".jsp" />
-		<property name="order"  value="1" />
+		<property name="order" value="1" />
 	</bean>
 
 	<!-- maps exception class names to view names -->
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="defaultStatusCode" value="500" />
-		<property name="defaultErrorView"  value="/web/any-exception" />
+		<property name="defaultErrorView" value="/web/any-exception" />
 		<property name="exceptionMappings">
 			<props>
 				<prop key="mojo.web.core.WebException">/web/web-exception</prop>
@@ -43,9 +42,10 @@
 	</bean>
 
 	<!-- Redefine the default handler mappings / adapters to enable: -->
-	<!-- 1. Dynamic locale resolving through request parameter with session storage. -->
+	<!-- 1. Dynamic locale resolution through request parameter with session storage. -->
 	<!-- 2. Automatic object conversion through @ResponseBody / @RequestBody annotations. -->
 
+	<!-- maps bean names to controller classes -->
 	<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" /> -->
 
 	<!-- maps request paths to controller classes -->
@@ -66,15 +66,17 @@
 		</property>
 	</bean>
 
+	<!-- changes locale, upon every request, by using a request parameter -->
 	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 		<property name="paramName" value="lang" />
 	</bean>
 
+	<!-- resolves locale by using 1) session custom attribute 2) request accept-language header -->
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
 
 	<bean id="marshallingHttpMessageConverter" class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
-		<property name="marshaller"   ref="xstreamMarshaller" />
 		<property name="unmarshaller" ref="xstreamMarshaller" />
+		<property name="marshaller"   ref="xstreamMarshaller" />
 	</bean>
 
 	<bean id="xstreamMarshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
@@ -97,13 +99,12 @@
 
 				<entry key="Node"      value="mojo.dao.model.node.Node" />
 				<entry key="NodeRule"  value="mojo.dao.model.node.NodeRule" />
+				<entry key="Post"      value="mojo.dao.model.post.Post" />
 				<entry key="Country"   value="mojo.dao.model.user.Country" />
 				<entry key="Language"  value="mojo.dao.model.user.Language" />
 				<entry key="OpenID"    value="mojo.dao.model.user.OpenID" />
 				<entry key="User"      value="mojo.dao.model.user.User" />
 				<entry key="UserGroup" value="mojo.dao.model.user.UserGroup" />
-
-				<entry key="Post"      value="memo.dao.common.model.Post" />
 			</map>
 		</property>
 	</bean>

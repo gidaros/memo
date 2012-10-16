@@ -5,16 +5,16 @@
 
 <tiles-definitions>
 
-	<definition name="HomeController" template="/WEB-INF/classes/memo/web/portal/server/PortalController_template.jsp" />
 
-	<definition name="/home" extends="HomeController">
+	<definition name="PortalController" template="/WEB-INF/classes/memo/web/portal/server/PortalController_template.jsp" />
+
+	<definition name="/home" extends="PortalController">
 		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/PortalController_doHome.jsp" />
 	</definition>
 
-	<definition name="/test" extends="HomeController">
+	<definition name="/test" extends="PortalController">
 		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/PortalController_doTest.jsp" />
 	</definition>
-
 
 
 	<definition name="OpenIDLoginController" template="/WEB-INF/classes/memo/web/portal/server/login/OpenIDLoginController_template.jsp" />
@@ -28,7 +28,6 @@
 	</definition>
 
 
-
 	<definition name="exception-template" template="/WEB-INF/views/exception-template.jsp" />
 
 	<!-- spring-mvc.xml -->
@@ -40,5 +39,6 @@
 	<definition name="/web/web-exception" extends="exception-template">
 		<put-attribute name="body" value="/WEB-INF/views/web/web-exception.jsp" />
 	</definition>
+
 
 </tiles-definitions>
