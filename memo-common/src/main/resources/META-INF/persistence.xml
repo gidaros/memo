@@ -12,16 +12,12 @@
 
 		<class>mojo.dao.model.node.Node</class>
 		<class>mojo.dao.model.node.NodeRule</class>
-
+		<class>mojo.dao.model.post.Post</class>
 		<class>mojo.dao.model.user.Country</class>
 		<class>mojo.dao.model.user.Language</class>
 		<class>mojo.dao.model.user.OpenID</class>
 		<class>mojo.dao.model.user.User</class>
 		<class>mojo.dao.model.user.UserGroup</class>
-
-		<!-- memo entities -->
-
-		<class>memo.dao.common.model.Post</class>
 
 		<exclude-unlisted-classes />
 
