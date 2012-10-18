@@ -26,16 +26,6 @@
 	</listener>
 
 	<filter>
-		<filter-name>WebContextFilter</filter-name>
-		<filter-class>mojo.web.core.WebContextFilter</filter-class>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>WebContextFilter</filter-name>
-		<url-pattern>/app/*</url-pattern>
-	</filter-mapping>
-
-	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>

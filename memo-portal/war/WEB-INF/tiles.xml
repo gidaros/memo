@@ -12,8 +12,12 @@
 		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/PortalController_doHome.jsp" />
 	</definition>
 
-	<definition name="/test" extends="PortalController">
-		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/PortalController_doTest.jsp" />
+	<definition name="/testWait" extends="PortalController">
+		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/PortalController_doTestWait.jsp" />
+	</definition>
+
+	<definition name="/testLogin.pro" extends="PortalController">
+		<put-attribute name="content" value="/WEB-INF/classes/memo/web/portal/server/PortalController_doTestLogin.jsp" />
 	</definition>
 
 

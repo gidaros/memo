@@ -5,6 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+	<context:component-scan base-package="mojo" />
 	<context:component-scan base-package="memo" />
 
 	<!-- VIEW RESOLVERS -->
@@ -53,6 +54,8 @@
 		<property name="interceptors">
 			<list>
 				<ref bean="localeChangeInterceptor" />
+				<bean class="mojo.web.core.WebContextInterceptor" />
+				<bean class="mojo.web.login.RequireLoginInterceptor" />
 			</list>
 		</property>
 	</bean>
@@ -66,12 +69,13 @@
 		</property>
 	</bean>
 
-	<!-- changes locale, upon every request, by using a request parameter -->
+	<!-- intercepts requests; changes locale by using a request parameter and the localeResolver bean -->
 	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 		<property name="paramName" value="lang" />
 	</bean>
 
 	<!-- resolves locale by using 1) session custom attribute 2) request accept-language header -->
+	<!-- note: standard bean name, defined in org.springframework.web.servlet.DispatcherServlet -->
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
 
 	<bean id="marshallingHttpMessageConverter" class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
@@ -88,6 +92,7 @@
 		</property>
 		<property name="aliases">
 			<map>
+
 				<entry key="DataPage"  value="mojo.dao.core.DataPage" />
 				<entry key="Batch"     value="mojo.dao.core.spec.Batch" />
 				<entry key="ByKey"     value="mojo.dao.core.spec.ByKey" />
@@ -105,6 +110,7 @@
 				<entry key="OpenID"    value="mojo.dao.model.user.OpenID" />
 				<entry key="User"      value="mojo.dao.model.user.User" />
 				<entry key="UserGroup" value="mojo.dao.model.user.UserGroup" />
+
 			</map>
 		</property>
 	</bean>

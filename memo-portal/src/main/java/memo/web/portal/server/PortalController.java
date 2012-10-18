@@ -31,8 +31,8 @@ public class PortalController {
 		return new ModelAndView("/home");
 	}
 
-	@RequestMapping(value = "/test")
-	public ModelAndView doTest(HttpServletRequest request, @RequestParam int timeout) {
+	@RequestMapping(value = "/testWait")
+	public ModelAndView doWait(HttpServletRequest request, @RequestParam int timeout) {
 		synchronized (this) {
 			try {
 				wait(timeout);
@@ -42,6 +42,11 @@ public class PortalController {
 			}
 		}
 
-		return new ModelAndView("/test");
+		return new ModelAndView("/testWait");
+	}
+
+	@RequestMapping(value = "/testLogin.pro")
+	public ModelAndView doTestLogin(HttpServletRequest request) {
+		return new ModelAndView("/testLogin.pro");
 	}
 }
