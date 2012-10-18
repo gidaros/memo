@@ -32,7 +32,7 @@ public class PortalController {
 	}
 
 	@RequestMapping(value = "/testWait")
-	public ModelAndView doWait(HttpServletRequest request, @RequestParam int timeout) {
+	public ModelAndView doTestWait(HttpServletRequest request, @RequestParam int timeout) {
 		synchronized (this) {
 			try {
 				wait(timeout);
